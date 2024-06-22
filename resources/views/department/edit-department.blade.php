@@ -23,6 +23,10 @@
                         <div class="card-body">
                         <form action="{{ route('department/update') }}" method="POST">
                             @csrf
+                      
+
+                            <input type="hidden" class="form-control" name="d_id" value="{{ $departmentEdit->d_id }}">
+
 
                                 <div class="row">
                                     <div class="col-12">
@@ -32,7 +36,7 @@
                                     <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Department ID <span class="login-danger">*</span></label>
-                                        <<input type="text" class="form-control @error('dept_id') is-invalid @enderror" name="dept_id" placeholder="Enter Department ID" value="{{ $departmentEdit->dept_id }}">
+                                        <input type="text" class="form-control @error('dept_id') is-invalid @enderror" name="dept_id" placeholder="Enter Department ID" value="{{ $departmentEdit->dept_id }}">
                                         @error('dept_id')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -54,20 +58,29 @@
                                 </div>
 
                                 <div class="col-12 col-sm-4">
-                                    <div class="form-group local-forms">
-                                        <label>Head of Department <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control @error('hod') is-invalid @enderror" name="hod" placeholder="Head of Department" value="{{ $departmentEdit->hod }}">
-                                        @error('hod')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
+    <div class="form-group local-forms">
+        <label>Head of Department <span class="login-danger">*</span></label>
+        <select class="form-control select @error('hod') is-invalid @enderror" name="hod">
+            <option selected disabled>Please Select HOD</option>
+            @foreach ($teachers as $teacher)
+                <option value="{{ $teacher->id }}" {{ $departmentEdit->hod == $teacher->id ? "selected" : "" }}>{{ $teacher->full_name }}  </option>
+            @endforeach
+        </select>
+        @error('hod')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
+
+
+
+
 
                                 <div class="col-12">
                                         <div class="student-submit">
-                                        <input type="hidden" name="dept_id" value="{{ $departmentEdit->dept_id }}">
+                                        <!--<input type="hidden" name="dept_id" value="{{ $departmentEdit->dept_id }}">-->
                                             <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
 

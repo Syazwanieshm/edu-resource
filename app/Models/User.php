@@ -16,13 +16,25 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
+     * 
+     * 
      */
+    
+     use HasFactory;
+     protected $table = 'users';
+     protected $primaryKey = 'id';
+     public $timestamps = true;
     protected $fillable = [
         'name',
         'user_id',
         'email',
         'join_date',
         'phone_number',
+        'address',
+        'city',
+        'zip_code',
+        'country',
+        'state',
         'status',
         'role_name',
         'email',
@@ -31,6 +43,8 @@ class User extends Authenticatable
         'position',
         'department',
         'password',
+        'teacher_id',
+        'stud_id'
     ];
 
     /**
@@ -51,4 +65,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class, 'stud_id');
+    }
+    
+    public function classroom(): HasMany
+    {
+        return $this->hasMany(ClassRoom::class, 'student_id'); // Adjust 'student_id' based on your database structure
+    }
+
+    public function classroomT(): HasMany
+    {
+        return $this->hasMany(ClassRoom::class, 'teacher_id'); // Adjust 'student_id' based on your database structure
+    }
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'stud_id','id');
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class, 'teacher_id','id');
+    }
+
 }

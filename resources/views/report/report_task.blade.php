@@ -1,0 +1,119 @@
+@extends('layouts.master')
+@section('content')
+{{-- message --}}
+{!! Toastr::message() !!}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Student Performance Report </h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Report</a></li>
+                        <li class="breadcrumb-item active">Generate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        
+
+<div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+
+                    <div class="page-header">
+                        <div class="row align-items-center">
+
+                        <div class="student-group-form">
+
+                        <div class="col">
+                                    <h3 class="page-title">Nur Amira Syafiqah Bt Rosli</h3>
+                                </div>   
+<!-- SEARCH BAR-->
+<div class="row">
+
+
+<div class="col-lg-3 col-md-6">
+ <div class="form-group">
+     <input type="text" class="form-control" placeholder="Search by Task Name ...">
+ </div>
+</div>
+
+
+<div class="col-lg-2">
+ <div class="search-student-btn">
+     <button type="btn" class="btn btn-primary">Search</button>
+ </div>
+</div>
+
+
+
+</div>
+</div>
+
+                                          
+                        </div>
+                    </div>
+                    <table
+                            class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+                            <thead class="student-thread">
+                                <tr>
+                                    <th>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </th>
+                                  
+                                    <th>Task Name</th>
+                                    
+                                </tr>
+                            </thead>
+
+                       
+                            <!-- CLASS DETAILS -->
+                            <tbody>
+                            
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+
+                                    <!-- CLASS_ID -->
+                                    <td hidden class="id">ID</td>
+                                   
+                                    <td>Quiz Chapter 3 : Penaakulan</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+
+                                    <!-- CLASS_ID -->
+                                    <td hidden class="id">ID</td>
+                                  
+                                    <td>English: Essay Week 2 </td>
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                   
+<td class="text-end">
+    <div class="actions">
+    <button style="width: 150px; height: 40px;" onclick="window.location.href='{{ url('report/task/page') }}'" class="btn btn-outline-primary">Generate Report</button>
+
+    </div>
+</td>
+                    
+                        
+
+</div>
+</div>

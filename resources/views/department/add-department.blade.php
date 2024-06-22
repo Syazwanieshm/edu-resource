@@ -53,17 +53,26 @@
                                     </div>
                                 </div>
 
+
                                 <div class="col-12 col-sm-4">
-                                    <div class="form-group local-forms">
-                                        <label>Head of Department <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control @error('hod') is-invalid @enderror" name="hod" placeholder="Enter HOD" value="{{ old('hod') }}">
-                                        @error('hod')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
+    <div class="form-group local-forms">
+        <label>Head of Department </label>
+        <select class="form-control select @error('hod') is-invalid @enderror" name="hod">
+            <option selected disabled>Please Select Head of Department</option>
+            @foreach($teachers as $teacher)
+                <option value="{{ $teacher->id }}" {{ old('hod') == $teacher->id ? "selected" : "" }}>
+                    {{ $teacher->full_name }}
+                </option>
+            @endforeach
+        </select>
+        @error('hod')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
+
                                     
                                    
                                     <div class="col-12">

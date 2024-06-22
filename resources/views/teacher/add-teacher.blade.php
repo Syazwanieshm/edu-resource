@@ -9,7 +9,7 @@
                 <div class="col">
                     <h3 class="page-title">Add Teachers</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="teachers.html">Teachers</a></li>
+                        <li class="breadcrumb-item"><a href="teachers.html">Administrator</a></li>
                         <li class="breadcrumb-item active">Add Teachers</li>
                     </ul>
                 </div>
@@ -28,6 +28,18 @@
                                 <div class="col-12">
                                     <h5 class="form-title"><span>Basic Details</span></h5>
                                 </div>
+
+                                <div class="col-12 col-sm-4">
+                                    <div class="form-group local-forms">
+                                        <label>Tutor ID <span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control @error('teacher_id') is-invalid @enderror" name="teacher_id" placeholder="Enter Tutor ID" value="{{ old('tutor_id') }}">
+                                        @error('teacher_id')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    </div>
 
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
@@ -79,7 +91,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-4">
+                                <!--<div class="col-12 col-sm-4">
                                     <div class="form-group local-forms calendar-icon">
                                         <label>Joining Date <span class="login-danger">*</span></label>
                                         <input type="text" class="form-control datetimepicker @error('joining_date') is-invalid @enderror" name="joining_date" placeholder="DD-MM-YYYY" value="{{ old('joining_date') }}">
@@ -89,29 +101,44 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
-                                <div class="col-12 col-sm-4 local-forms">
-                                    <div class="form-group">
-                                        <label>Qualification <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control @error('qualification') is-invalid @enderror" name="qualification" placeholder="Enter Joining Date" value="{{ old('qualification') }}">
-                                        @error('qualification')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
+                                </div>-->
+
+
+<div class="col-12 col-sm-4">
+    <div class="form-group local-forms">
+        <label>Department </span></label>
+        <select class="form-control select @error('dept_id') is-invalid @enderror" name="dept_id">
+            <option selected disabled>Select Department</option>
+            @foreach($departments as $department)
+                <option value="{{ $department->d_id }}">{{ $department->dept_name }}</option>
+            @endforeach
+        </select>
+        @error('dept_id')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
+
+
+
+
+
                                 <div class="col-12 col-sm-4">
-                                    <div class="form-group local-forms">
-                                        <label>Experience <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control @error('experience') is-invalid @enderror" name="experience" placeholder="Enter Experience" value="{{ old('experience') }}">
-                                        @error('experience')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <div class="form-group local-forms">
+                                            <label>Status <span class="login-danger">*</span></label>
+                                            <select class="form-control select" name="status">
+                                                <option disabled>Select Status</option>
+                                                
+                                                <option value="Active" {{ old('status')== 'Active' ? 'selected' : '' }}>Active</option>
+                                                <option value="Disable" {{ old('status') == 'Disable' ? 'selected' : '' }}>Disable</option>
+                                                <option value="Inactive" {{ old('status') == 'Inactive' ? 'selected' : '' }}>Inactive</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
+
+
                                 <div class="col-12">
                                     <h5 class="form-title"><span>Login Details</span></h5>
                                 </div>

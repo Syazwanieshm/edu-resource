@@ -9,7 +9,6 @@ use Brian2694\Toastr\Facades\Toastr;
 
 class SubjectController extends Controller
 {
-
     /** subject add page */
     public function subjectAdd()
     {
@@ -22,10 +21,12 @@ class SubjectController extends Controller
          $subjectList = Subject::all();
          return view('subject.list_subject', compact('subjectList'));
      }
+
+     //SAVE RECORD
      public function subjectSave(Request $request)
      {
          $request->validate([
-             'sub_id'   => 'required|string',
+             //'sub_id'   => 'required|string',
              'sub_name' => 'required|string',
              'description'       => 'required|string',
          ]);
@@ -34,13 +35,13 @@ class SubjectController extends Controller
              DB::beginTransaction(); // Start the transaction
      
              // Check if the subject with the given sub_id already exists
-             if (Subject::where('sub_id', $request->dept_id)->exists()) {
+             if (Subject::where('sub_id', $request->sub_id)->exists()) {
                  Toastr::error('Subject with the provided ID already exists :(', 'Error');
                  return redirect()->back();
              }
-     
+             $sub_id = DB::table('subject')->select('sub_id')->orderBy('id','DESC')->first();
              // If not exists, proceed with saving the subject
-             $subject = new Department;
+             $subject = new Subject;
              $subject->sub_id   = $request->sub_id;
              $subject->sub_name = $request->sub_name;
              $subject->description      = $request->description;
@@ -62,9 +63,9 @@ class SubjectController extends Controller
      
 
     /** view for edit subject */
-    public function subjectEdit($dept_id)
+    public function subjectEdit($id)
     {
-        $subjectEdit = Subject::where('sub_id', $sub_id)->first();
+        $subjectEdit = Subject::where('id', $id)->first();
         return view('subject.edit_subject', compact('subjectEdit'));
     }
 
@@ -78,7 +79,7 @@ class SubjectController extends Controller
                 'sub_name' => $request->sub_name,
                 'description'             => $request->description,
             ];
-            Subject::where('sub_id', $request->sub_id)->update($subjectUpdate);
+            Subject::where('id', $request->id)->update($subjectUpdate);
 
             Toastr::success('Subject has been updated successfully :)', 'Success');
             DB::commit();
@@ -99,7 +100,7 @@ class SubjectController extends Controller
         try {
 
             if (!empty($request->id)) {
-                Department::destroy($request->id);
+                Subject::destroy($request->id);
                 DB::commit();
                 Toastr::success('Subject deleted successfully :)', 'Success');
                 return redirect()->back();
@@ -110,6 +111,14 @@ class SubjectController extends Controller
             Toastr::error('Failed to delete subject :(', 'Error');
             return redirect()->back();
         }
+    }
+
+    public function subjectView()
+    {
+        // Fetch the list of subjects from the database
+        $subjectView = Subject::pluck('sub_name', 'sub_id');
+    
+        return view('class.add_class', compact('subjectView'));
     }
 
 }

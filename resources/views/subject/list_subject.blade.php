@@ -54,7 +54,7 @@
                                     <a href="#" class="btn btn-outline-primary me-2"><i
                                             class="fas fa-download"></i> Download</a>
 
-                                    <a href="{{ route('department/add/page') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                    <a href="{{ route('subject/add/page') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -72,8 +72,6 @@
                                     <th>ID</th>
                                     <th>Subject Name</th>
                                     <th>Description</th>
-                                   
-                                    <!--<th>No of Tutors</th>-->
                                     <th class="text-end">Action</th>
                                 </tr>
                             </thead>
@@ -95,7 +93,7 @@
                                     <!-- SUB_NAME -->
                                     <td>{{ $list->sub_name }}</td>
                                     <!-- DESCRIPTION OF SUBJECT -->
-                                    <td>{{ $list->desription }}</td>
+                                    <td>{{ $list->description }}</td>
                                     <!--<td>1995</td>-->
                                     
                                     <!-- NO OF TUTORS -->
@@ -121,13 +119,13 @@
     </div>
 </div>
 
-{{-- model subject delete --}}
-<div class="modal fade contentmodal" id="subejectDelete" tabindex="-1" aria-hidden="true">
+{{-- Model subject delete --}}
+<div class="modal fade contentmodal" id="subjectDelete" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content doctor-profile">
             <div class="modal-header pb-0 border-bottom-0  justify-content-end">
-                <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close"><i
-                    class="feather-x-circle"></i>
+                <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="feather-x-circle"></i>
                 </button>
             </div>
             <div class="modal-body">
@@ -137,11 +135,11 @@
                         <div class="del-icon">
                             <i class="feather-x-circle"></i>
                         </div>
-                        <input type="hidden" name="id" class="e_id" value="">
+                        <input type="hidden" name="id" class="subject_id" value="">
                         <h2>Sure you want to delete</h2>
                         <div class="submit-section">
                             <button type="submit" class="btn btn-success me-2">Yes</button>
-                            <a class="btn btn-danger" data-bs-dismiss="modal">No</a>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
                         </div>
                     </div>
                 </form>
@@ -153,12 +151,12 @@
 @section('script')
     {{-- delete js --}}
     <script>
-        $(document).on('click','.subject_delete',function()
-        {
-            var _this = $(this).parents('tr');
-            $('.e_id').val(_this.find('.id').text());
+        $(document).on('click', '.subject_delete', function () {
+            var _this = $(this).closest('tr');
+            $('.subject_id').val(_this.find('.id').text());
         });
     </script>
 @endsection
+
 
 @endsection

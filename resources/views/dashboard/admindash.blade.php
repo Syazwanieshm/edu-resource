@@ -9,10 +9,10 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-sub-header">
-                        <h3 class="page-title">Welcome {{ Session::get('name') }}!</h3>
+                        <h3 class="page-title">Welcome !</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active">{{ Session::get('name') }}</li>
+                            <!--<li class="breadcrumb-item active">{{ Session::get('name') }}</li>-->
                         </ul>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                         <div class="db-widgets d-flex justify-content-between align-items-center">
                             <div class="db-info">
                                 <h6>Students</h6> 
-                                <h3>50055</h3>
+                                <h3>5</h3>
                             </div>
                             <div class="db-icon">
                                 <img src="assets/img/icons/dash-icon-01.svg" alt="Dashboard Icon">
@@ -41,7 +41,7 @@
                         <div class="db-widgets d-flex justify-content-between align-items-center">
                             <div class="db-info">
                                 <h6>Tutor</h6>
-                                <h3>50+</h3>
+                                <h3>7</h3>
                             </div>
                             <div class="db-icon">
                                 <img src="assets/img/icons/dash-icon-02.svg" alt="Dashboard Icon">
@@ -56,7 +56,7 @@
                         <div class="db-widgets d-flex justify-content-between align-items-center">
                             <div class="db-info">
                                 <h6>Classroom</h6>
-                                <h3>30+</h3>
+                                <h3>8</h3>
                             </div>
                             <div class="db-icon">
                                 <img src="assets/img/icons/dash-icon-03.svg" alt="Dashboard Icon">
@@ -71,7 +71,7 @@
                         <div class="db-widgets d-flex justify-content-between align-items-center">
                             <div class="db-info">
                                 <h6>Subject</h6>
-                                <h3>$505</h3>
+                                <h3>2</h3>
                             </div>
                             <div class="db-icon">
                                 <img src="assets/img/icons/dash-icon-04.svg" alt="Dashboard Icon">
@@ -86,7 +86,7 @@
                         <div class="db-widgets d-flex justify-content-between align-items-center">
                             <div class="db-info">
                                 <h6>Resources</h6> 
-                                <h3>50055</h3>
+                                <h3>12</h3>
                             </div>
                             <div class="db-icon">
                                 <img src="assets/img/icons/dash-icon-01.svg" alt="Dashboard Icon">
@@ -96,185 +96,225 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="row">
-            <div class="col-xl-6 d-flex">
-
-                <div class="card flex-fill student-space comman-shadow">
-                    <div class="card-header d-flex align-items-center">
-                        <h5 class="card-title">Star Students</h5>
-                        <ul class="chart-list-out student-ellips">
-                            <li class="star-menus"><a href="javascript:;"><i class="fas fa-ellipsis-v"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table
-                                class="table star-student table-hover table-center table-borderless table-striped">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th class="text-center">Marks</th>
-                                        <th class="text-center">Percentage</th>
-                                        <th class="text-end">Year</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-nowrap">
-                                            <div>PRE2209</div>
-                                        </td>
-                                        <td class="text-nowrap">
-                                            <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
-                                            </a>
-                                        </td>
-                                        <td class="text-center">1185</td>
-                                        <td class="text-center">98%</td>
-                                        <td class="text-end">
-                                            <div>2019</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-nowrap">
-                                            <div>PRE1245</div>
-                                        </td>
-                                        <td class="text-nowrap">
-                                            <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
-                                            </a>
-                                        </td>
-                                        <td class="text-center">1195</td>
-                                        <td class="text-center">99.5%</td>
-                                        <td class="text-end">
-                                            <div>2018</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-nowrap">
-                                            <div>PRE1625</div>
-                                        </td>
-                                        <td class="text-nowrap">
-                                            <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
-                                            </a>
-                                        </td>
-                                        <td class="text-center">1196</td>
-                                        <td class="text-center">99.6%</td>
-                                        <td class="text-end">
-                                            <div>2017</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-nowrap">
-                                            <div>PRE2516</div>
-                                        </td>
-                                        <td class="text-nowrap">
-                                            <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
-                                            </a>
-                                        </td>
-                                        <td class="text-center">1187</td>
-                                        <td class="text-center">98.2%</td>
-                                        <td class="text-end">
-                                            <div>2016</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-nowrap">
-                                            <div>PRE2209</div>
-                                        </td>
-                                        <td class="text-nowrap">
-                                            <a href="profile.html">
-                                                <img class="rounded-circle"src="{{ URL::to('assets/img/profiles/avatar-01.jpg') }}" width="25" alt="Star Students"> Soeng Souy
-                                            </a>
-                                        </td>
-                                        <td class="text-center">1185</td>
-                                        <td class="text-center">98%</td>
-                                        <td class="text-end">
-                                            <div>2015</div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-xl-6 d-flex">
-
+          <!-- Calendar Section -->
+          <div class="col-xl-3">
                 <div class="card flex-fill comman-shadow">
-                    <div class="card-header d-flex align-items-center">
-                        <h5 class="card-title ">Student Activity </h5>
-                        <ul class="chart-list-out student-ellips">
-                            <li class="star-menus"><a href="javascript:;"><i class="fas fa-ellipsis-v"></i></a>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="card-body">
-                        <div class="activity-groups">
-                            <div class="activity-awards">
-                                <div class="award-boxs">
-                                    <img src="assets/img/icons/award-icon-01.svg" alt="Award">
-                                </div>
-                                <div class="award-list-outs">
-                                    <h4>1st place in "Chess”</h4>
-                                    <h5>John Doe won 1st place in "Chess"</h5>
-                                </div>
-                                <div class="award-time-list">
-                                    <span>1 Day ago</span>
-                                </div>
-                            </div>
-                            <div class="activity-awards">
-                                <div class="award-boxs">
-                                    <img src="assets/img/icons/award-icon-02.svg" alt="Award">
-                                </div>
-                                <div class="award-list-outs">
-                                    <h4>Participated in "Carrom"</h4>
-                                    <h5>Justin Lee participated in "Carrom"</h5>
-                                </div>
-                                <div class="award-time-list">
-                                    <span>2 hours ago</span>
-                                </div>
-                            </div>
-                            <div class="activity-awards">
-                                <div class="award-boxs">
-                                    <img src="assets/img/icons/award-icon-03.svg" alt="Award">
-                                </div>
-                                <div class="award-list-outs">
-                                    <h4>Internation conference in "St.John School"</h4>
-                                    <h5>Justin Leeattended internation conference in "St.John School"</h5>
-                                </div>
-                                <div class="award-time-list">
-                                    <span>2 Week ago</span>
-                                </div>
-                            </div>
-                            <div class="activity-awards mb-0">
-                                <div class="award-boxs">
-                                    <img src="assets/img/icons/award-icon-04.svg" alt="Award">
-                                </div>
-                                <div class="award-list-outs">
-                                    <h4>Won 1st place in "Chess"</h4>
-                                    <h5>John Doe won 1st place in "Chess"</h5>
-                                </div>
-                                <div class="award-time-list">
-                                    <span>3 Day ago</span>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="calendar-doctor" class="calendar-container"></div>
                     </div>
                 </div>
-
             </div>
-        </div>
+            <!-- End Calendar Section -->
+     
 
+      
+           
     </div>
 </div>
 @endsection
 
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/core/main.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/daygrid/main.min.js"></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Calendar Initialization
+        var calendarEl = document.getElementById('calendar-doctor');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth', // You can change the initial view if needed
+            // Add more options and event sources as needed
+        });
+        calendar.render();
+
+        // Chart Initialization
+        @if(isset($classAverages))
+            var classSeries = [];
+            var classCategories = [];
+            var isCategoriesSet = false;
+
+            @foreach($classAverages as $class => $averages)
+                var data = [
+                    @foreach($averages as $average)
+                        {{ number_format($average->average_carry_mark, 2) }},
+                    @endforeach
+                ];
+
+                if (!isCategoriesSet) {
+                    classCategories = [
+                        @foreach($averages as $average)
+                            '{{ $average->subject }}',
+                        @endforeach
+                    ];
+                    isCategoriesSet = true;
+                }
+
+                classSeries.push({
+                    name: '{{ $class }}',
+                    data: data
+                });
+            @endforeach
+
+            var classOptions = {
+                series: classSeries,
+                chart: {
+                    type: 'line',
+                    height: 350,
+                    toolbar: {
+                        show: true
+                    }
+                },
+                colors: ['#1E90FF', '#32CD32', '#FF8C00', '#FF1493', '#8A2BE2'],
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    width: 2,
+                    curve: 'smooth'
+                },
+                markers: {
+                    size: 0 // Removed markers
+                },
+                xaxis: {
+                    categories: classCategories
+                },
+                yaxis: {
+                    title: {
+                        text: 'Average Carry Mark (%)'
+                    }
+                },
+                legend: {
+                    position: 'top'
+                }
+            };
+
+            var classChart = new ApexCharts(document.querySelector("#class-chart"), classOptions);
+            classChart.render();
+        @endif
+
+        @if(isset($formAverages))
+            var formSeries = [];
+            var formCategories = [];
+            var isFormCategoriesSet = false;
+
+            @for ($i = 1; $i <= 5; $i++)
+                @php
+                    $formKey = (string)$i;
+                @endphp
+                @if (isset($formAverages[$formKey]))
+                    var formData{{$i}} = [
+                        @foreach($formAverages[$formKey] as $average)
+                            {{ number_format($average->average_carry_mark, 2) }},
+                        @endforeach
+                    ];
+
+                    if (!isFormCategoriesSet) {
+                        formCategories = [
+                            @foreach($formAverages[$formKey] as $average)
+                                '{{ $average->subject }}',
+                            @endforeach
+                        ];
+                        isFormCategoriesSet = true;
+                    }
+
+                    formSeries.push({
+                        name: 'Form {{ $i }}',
+                        data: formData{{$i}}
+                    });
+                @endif
+            @endfor
+
+            var formOptions = {
+                series: formSeries,
+                chart: {
+                    type: 'line',
+                    height: 350,
+                    toolbar: {
+                        show: true
+                    }
+                },
+                colors: ['#FF6347', '#20B2AA', '#FFA07A', '#00CED1', '#9370DB'],
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    width: 2,
+                    curve: 'smooth'
+                },
+                markers: {
+                    size: 0 // Removed markers
+                },
+                xaxis: {
+                    categories: formCategories
+                },
+                yaxis: {
+                    title: {
+                        text: 'Average Carry Mark (%)'
+                    }
+                },
+                legend: {
+                    position: 'top'
+                }
+            };
+
+            var formChart = new ApexCharts(document.querySelector("#form-chart"), formOptions);
+            formChart.render();
+        @endif
+
+        @if(isset($subjectAverages))
+            var subjectSeries = [];
+            var subjectCategories = [];
+            var isSubjectCategoriesSet = false;
+
+            @foreach($subjectAverages as $subjectAverage)
+                subjectCategories.push('{{ $subjectAverage->name }}');
+                subjectSeries.push({
+                    name: '{{ $subjectAverage->name }}',
+                    data: [{{ number_format($subjectAverage->average_carry_mark, 2) }}]
+                });
+            @endforeach
+
+            var subjectOptions = {
+                series: [{
+                    name: 'Average Carry Mark (%)',
+                    data: subjectSeries.map(series => series.data[0])
+                }],
+                chart: {
+                    type: 'line',
+                    height: 350,
+                    toolbar: {
+                        show: true
+                    }
+                },
+                colors: ['#20B2AA'],
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    width: 2,
+                    curve: 'smooth'
+                },
+                markers: {
+                    size: 0 // Removed markers
+                },
+                xaxis: {
+                    categories: subjectCategories
+                },
+                yaxis: {
+                    title: {
+                        text: 'Average Carry Mark (%)'
+                    }
+                },
+                legend: {
+                    position: 'top'
+                }
+            };
+
+            var subjectChart = new ApexCharts(document.querySelector("#subject-chart"), subjectOptions);
+            subjectChart.render();
+        @endif
+    });
+</script>
+@endsection
 

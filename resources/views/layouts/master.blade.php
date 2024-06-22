@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title> Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link rel="shortcut icon" href="{{ URL::to('assets/img/favicon.png') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/plugins/feather/feather.css') }}">
@@ -20,9 +22,25 @@
 	<link rel="stylesheet" href="{{ URL::to('assets/css/toastr.min.css') }}">
 	<script src="{{ URL::to('assets/js/toastr_jquery.min.js') }}"></script>
 	<script src="{{ URL::to('assets/js/toastr.min.js') }}"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-KzZi4+fU+9T4R1wFm4A6V2lyzjHgHkB3rP0f2WGV5Hn+KBe/2x7t30Kn/u0b86H9" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+    <script>
+        // Initialize Toastr
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            showMethod: 'slideDown',
+            timeOut: 4000
+        };
+    </script>
     <!--TOP BAR-->
     <div class="main-wrapper">
         <div class="header">
@@ -31,11 +49,11 @@
                 <!--ADMIN VIEW SAHAJA-->
                 <a href="{{ route('home') }}" class="logo">
                     <!--FULL LOGO BILA SIDE BAR MENU OPEN-->
-                    <img src="{{ URL::to('assets/img/logo.png') }}" alt="Logo"> 
+                    <img src="{{ URL::to('assets/img/logoSMKUT3.png') }}" alt="Logo"> 
                 </a>
                 <a href="{{ route('home') }}" class="logo logo-small">
                     <!--LOGO KECIK BULAT BILA MENU SIDE BAR DITUTUP-->
-                    <img src="{{ URL::to('assets/img/logo-small.png') }}" alt="Logo" width="30" height="30">
+                    <img src="{{ URL::to('assets/img/logo-Kecik2.png') }}" alt="Logo" width="30" height="30">
                 </a>
             </div>
             <!--MENU BUTTON-->
@@ -148,7 +166,7 @@
                     <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                         <span class="user-img">
                             <!--GAMBAR USER-->
-                            <img class="rounded-circle" src="/images/{{ Session::get('avatar') }}" width="31"alt="{{ Session::get('name') }}">
+                            <img class="rounded-circle" src="/images/{{ 'photo_defaults.jpg' }}" width="31"alt="{{ Session::get('name') }}">
                             <!--NAMA & ROLE USER-->
                             <div class="user-text">
                                 <h6>{{ Session::get('name') }}</h6>
@@ -160,7 +178,7 @@
                     <div class="dropdown-menu">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="/images/{{ Session::get('avatar') }}" alt="{{ Session::get('name') }}" class="avatar-img rounded-circle">
+                                <img src="/images/{{ 'photo_defaults.jpg' }}" alt="{{ Session::get('name') }}" class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
                                 <h6>{{ Session::get('name') }}</h6>

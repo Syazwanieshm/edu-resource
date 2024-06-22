@@ -77,8 +77,6 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>HOD</th>
-                                   
-                                    <th>No of Tutors</th>
                                     <th class="text-end">Action</th>
                                 </tr>
                             </thead>
@@ -87,27 +85,32 @@
                             <!-- DEPARTMENT DETAILS -->
                             <tbody>
                             @foreach ($departmentList as $list)
-                                <tr>
-                                    <td>
-                                        <div class="form-check check-tables">
-                                            <input class="form-check-input" type="checkbox" value="something">
-                                        </div>
-                                    </td>
+    <tr>
+        <td>
+            <div class="form-check check-tables">
+                <input class="form-check-input" type="checkbox" value="something">
+            </div>
+        </td>
 
-                                    <!-- DEPT_ID -->
-                                    <td hidden class="id">{{ $list->id }}</td>
-                                    <td>{{ $list->dept_id }}</td>
-                                    <!-- DEPT_NAME -->
-                                    <td>{{ $list->dept_name }}</td>
-                                    <!-- HEAD OF DEPT -->
-                                    <td>{{ $list->hod }}</td>
+        <!-- DEPT_ID -->
+        <td hidden class="id">{{ $list->id }}</td>
+        <td>{{ $list->dept_id }}</td>
+        
+        <!-- DEPT_NAME -->
+        <td>{{ $list->dept_name }}</td>
+       
+        <!-- HEAD OF DEPT -->
+        <td>{{ $list->hodTeacher->full_name ?? 'N/A' }}</td> <!-- Display HOD full name, or 'N/A' if not set -->
+
+
+                                    
                                     <!--<td>1995</td>-->
                                     
                                     <!-- NO OF TUTORS -->
-                                    <td>180</td>
+                                 
                                     <td class="text-end">
                                             <div class="actions">
-                                                <a href="{{ url('department/edit/'.$list->id) }}" class="btn btn-sm bg-danger-light">
+                                                <a href="{{ url('department/edit/'.$list->d_id) }}" class="btn btn-sm bg-danger-light">
                                                     <i class="feather-edit"></i>
                                                 </a>
                                                 <a class="btn btn-sm bg-danger-light department_delete" data-bs-toggle="modal" data-bs-target="#departmentDelete">
@@ -126,13 +129,13 @@
     </div>
 </div>
 
-{{-- model department delete --}}
+{{-- Model department delete --}}
 <div class="modal fade contentmodal" id="departmentDelete" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content doctor-profile">
             <div class="modal-header pb-0 border-bottom-0  justify-content-end">
-                <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close"><i
-                    class="feather-x-circle"></i>
+                <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="feather-x-circle"></i>
                 </button>
             </div>
             <div class="modal-body">
@@ -142,11 +145,11 @@
                         <div class="del-icon">
                             <i class="feather-x-circle"></i>
                         </div>
-                        <input type="hidden" name="id" class="e_id" value="">
+                        <input type="hidden" name="id" class="department_id" value="">
                         <h2>Sure you want to delete</h2>
                         <div class="submit-section">
                             <button type="submit" class="btn btn-success me-2">Yes</button>
-                            <a class="btn btn-danger" data-bs-dismiss="modal">No</a>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
                         </div>
                     </div>
                 </form>
@@ -158,12 +161,15 @@
 @section('script')
     {{-- delete js --}}
     <script>
-        $(document).on('click','.department_delete',function()
-        {
-            var _this = $(this).parents('tr');
-            $('.e_id').val(_this.find('.id').text());
-        });
-    </script>
+    $(document).on('click', '.department_delete', function () {
+    var _this = $(this).closest('tr');
+    var departmentId = _this.find('.id').text(); // Use class 'id' instead of 'd_id'
+    console.log("Department ID:", departmentId); // Check if departmentId is captured correctly
+    $('.department_id').val(departmentId);
+});
+
+</script>
+
 @endsection
 
 @endsection
