@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    RewriteCond %{REQUEST_URL}^public
+    RewriteRule ^(.*)$public/$1[L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -19,3 +22,5 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+
