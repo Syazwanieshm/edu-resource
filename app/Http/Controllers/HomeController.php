@@ -24,7 +24,7 @@ class HomeController extends Controller
     /** home dashboard */
     public function index()
     {
-        return view('dashboard.home');
+        return view('dashboard.maindash');
     }
 
     /** profile user */

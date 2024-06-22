@@ -21,12 +21,14 @@ class TeacherController extends Controller
     /** teacher list */
     public function teacherList()
     {
+        /** AMIK DRI USERS TABLE */
         $listTeacher = DB::table('users')
             ->join('teachers','teachers.teacher_id','users.user_id')
             ->select('users.user_id','users.name','users.avatar','teachers.id','teachers.gender','teachers.mobile','teachers.address')
             ->get();
         return view('teacher.list-teachers',compact('listTeacher'));
     }
+
 
     /** teacher Grid */
     public function teacherGrid()
@@ -38,6 +40,7 @@ class TeacherController extends Controller
     /** save record */
     public function saveRecord(Request $request)
     {
+        /** DETAILS DARI FORM ADD TUTOR */
         $request->validate([
             'full_name'       => 'required|string',
             'gender'          => 'required|string',
@@ -70,6 +73,7 @@ class TeacherController extends Controller
                 'role_name' => 'Teacher',
                 'password'  => Hash::make($request->password),
             ]);
+            /** SAVE RECORD DALAM USERS TABLE */
             $user_id = DB::table('users')->select('user_id')->orderBy('id','DESC')->first();
             
             $saveRecord = new Teacher;
@@ -90,7 +94,7 @@ class TeacherController extends Controller
             $saveRecord->save();
    
             Toastr::success('Has been add successfully :)','Success');
-            return redirect()->back();
+            return redirect()->route('teacher/list/page');
         } catch(\Exception $e) {
             \Log::info($e);
             DB::rollback();

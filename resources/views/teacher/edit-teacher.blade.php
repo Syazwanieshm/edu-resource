@@ -7,10 +7,10 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Edit Teachers</h3>
+                    <h3 class="page-title">Edit Tutor</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('teacher/list/page') }}">Teachers</a></li>
-                        <li class="breadcrumb-item active">Edit Teachers</li>
+                        <li class="breadcrumb-item"><a href="{{ route('teacher/list/page') }}">Tutor</a></li>
+                        <li class="breadcrumb-item active">Edit</li>
                     </ul>
                 </div>
             </div>
@@ -222,6 +222,7 @@
                                 </div>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>

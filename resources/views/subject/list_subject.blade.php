@@ -1,4 +1,3 @@
-
 @extends('layouts.master')
 @section('content')
 {{-- message --}}
@@ -9,10 +8,10 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Departments</h3>
+                    <h3 class="page-title">Subject </h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Departments</li>
+                        <li class="breadcrumb-item active">Subject Data</li>
                     </ul>
                 </div>
             </div>
@@ -28,14 +27,10 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by Name ...">
+                        <input type="text" class="form-control" placeholder="Search by Subject Name ...">
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by Year ...">
-                    </div>
-                </div>
+                
                 <div class="col-lg-2">
                     <div class="search-student-btn">
                         <button type="btn" class="btn btn-primary">Search</button>
@@ -53,7 +48,7 @@
                         <div class="page-header">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h3 class="page-title">Departments</h3>
+                                    <h3 class="page-title">Subject Data</h3>
                                 </div>
                                 <div class="col-auto text-end float-end ms-auto download-grp">
                                     <a href="#" class="btn btn-outline-primary me-2"><i
@@ -64,7 +59,7 @@
                             </div>
                         </div>
                         
-                        <!-- DEPARTMENT TABLE -->
+                        <!-- SUBJECT TABLE -->
                         <table
                             class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
                             <thead class="student-thread">
@@ -75,18 +70,18 @@
                                         </div>
                                     </th>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>HOD</th>
+                                    <th>Subject Name</th>
+                                    <th>Description</th>
                                    
-                                    <th>No of Tutors</th>
+                                    <!--<th>No of Tutors</th>-->
                                     <th class="text-end">Action</th>
                                 </tr>
                             </thead>
 
                        
-                            <!-- DEPARTMENT DETAILS -->
+                            <!-- SUBJECT DETAILS -->
                             <tbody>
-                            @foreach ($departmentList as $list)
+                            @foreach ($subjectList as $list)
                                 <tr>
                                     <td>
                                         <div class="form-check check-tables">
@@ -94,23 +89,23 @@
                                         </div>
                                     </td>
 
-                                    <!-- DEPT_ID -->
+                                    <!-- SUB_ID -->
                                     <td hidden class="id">{{ $list->id }}</td>
-                                    <td>{{ $list->dept_id }}</td>
-                                    <!-- DEPT_NAME -->
-                                    <td>{{ $list->dept_name }}</td>
-                                    <!-- HEAD OF DEPT -->
-                                    <td>{{ $list->hod }}</td>
+                                    <td>{{ $list->sub_id }}</td>
+                                    <!-- SUB_NAME -->
+                                    <td>{{ $list->sub_name }}</td>
+                                    <!-- DESCRIPTION OF SUBJECT -->
+                                    <td>{{ $list->desription }}</td>
                                     <!--<td>1995</td>-->
                                     
                                     <!-- NO OF TUTORS -->
-                                    <td>180</td>
+                                    <!--<td>180</td>-->
                                     <td class="text-end">
                                             <div class="actions">
-                                                <a href="{{ url('department/edit/'.$list->id) }}" class="btn btn-sm bg-danger-light">
+                                                <a href="{{ url('subject/edit/'.$list->id) }}" class="btn btn-sm bg-danger-light">
                                                     <i class="feather-edit"></i>
                                                 </a>
-                                                <a class="btn btn-sm bg-danger-light department_delete" data-bs-toggle="modal" data-bs-target="#departmentDelete">
+                                                <a class="btn btn-sm bg-danger-light subject_delete" data-bs-toggle="modal" data-bs-target="#subjectDelete">
                                                     <i class="feather-trash-2 me-1"></i>
                                                 </a>
                                             </div>
@@ -126,8 +121,8 @@
     </div>
 </div>
 
-{{-- model department delete --}}
-<div class="modal fade contentmodal" id="departmentDelete" tabindex="-1" aria-hidden="true">
+{{-- model subject delete --}}
+<div class="modal fade contentmodal" id="subejectDelete" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content doctor-profile">
             <div class="modal-header pb-0 border-bottom-0  justify-content-end">
@@ -136,7 +131,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('department/delete') }}" method="POST">
+                <form action="{{ route('subject/delete') }}" method="POST">
                     @csrf
                     <div class="delete-wrap text-center">
                         <div class="del-icon">
@@ -158,7 +153,7 @@
 @section('script')
     {{-- delete js --}}
     <script>
-        $(document).on('click','.department_delete',function()
+        $(document).on('click','.subject_delete',function()
         {
             var _this = $(this).parents('tr');
             $('.e_id').val(_this.find('.id').text());

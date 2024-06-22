@@ -15,6 +15,7 @@
                 </div>
             </div>
         </div>
+
         {{-- message --}}
         {!! Toastr::message() !!}
         <div class="row">
@@ -27,6 +28,7 @@
                                 <div class="col-12">
                                     <h5 class="form-title"><span>Basic Details</span></h5>
                                 </div>
+
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Name <span class="login-danger">*</span></label>
@@ -38,6 +40,7 @@
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Gender <span class="login-danger">*</span></label>
@@ -214,6 +217,7 @@
                                         @enderror
                                     </div>
                                 </div>
+                                
                                 <div class="col-12">
                                     <div class="student-submit">
                                         <button type="submit" class="btn btn-primary">Submit</button>

@@ -110,8 +110,27 @@ Route::controller(TeacherController::class)->group(function () {
 });
 
 // ----------------------- department -----------------------------//
+
+Route::resource('department', DepartmentController::class);
 Route::controller(DepartmentController::class)->group(function () {
+    Route::get('/department', 'DepartmentController@department')->name('department');
     Route::get('department/list/page', 'departmentList')->middleware('auth')->name('department/list/page'); // department/list/page
-    Route::get('department/add/page', 'indexDepartment')->middleware('auth')->name('department/add/page'); // page add department
-    Route::get('department/edit/page', 'editDepartment')->middleware('auth')->name('department/edit/page'); // page add department
+    Route::get('department/add/page', 'departmentAdd')->middleware('auth')->name('department/add/page'); // page add department
+    Route::get('department/edit/{id}', 'departmentEdit'); // edit dept
+    Route::post('department/save', 'departmentSave')->middleware('auth')->name('department/save'); // save record
+    Route::post('department/update', 'departmentUpdate')->middleware('auth')->name('department/update'); // update record
+    Route::post('department/delete', 'departmentDelete')->name('department/delete'); // delete record department
+});
+
+// ----------------------- subject -----------------------------//
+
+Route::resource('subject', SubjectController::class);
+Route::controller(SubjectController::class)->group(function () {
+    Route::get('/subject', 'SubjectController@subject')->name('subject');
+    Route::get('subject/list/page', 'subjectList')->middleware('auth')->name('subject/list/page'); // subject/list/page
+    Route::get('subject/add/page', 'subjectAdd')->middleware('auth')->name('subject/add/page'); // page add subject
+    Route::get('subject/edit/{id}', 'subjectEdit'); // edit subject
+    Route::post('subject/save', 'subjectSave')->middleware('auth')->name('subject/save'); // save record
+    Route::post('subject/update', 'subjectUpdate')->middleware('auth')->name('subject/update'); // update record
+    Route::post('subject/delete', 'subjectDelete')->name('subject/delete'); // delete record subject
 });

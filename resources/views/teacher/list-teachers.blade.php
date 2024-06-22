@@ -8,15 +8,16 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Teachers</h3>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Teachers</li>
-                    </ul>
+                    <h3 class="page-title">Tutor Data</h3>
+                    <!--<ul class="breadcrumb">-->
+                        <!--<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Teachers</li>-->
+                    <!--</ul>-->
                 </div>
             </div>
         </div>
-
+        
+        <!--SEARCH TUTOR BY ID-->
         <div class="student-group-form">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -24,16 +25,13 @@
                         <input type="text" class="form-control" placeholder="Search by ID ...">
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <!--<div class="col-lg-3 col-md-6">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search by Name ...">
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by Phone ...">
-                    </div>
-                </div>
+                </div>-->
+                
+                <!--SEARCH BUTTON--><!--KENA MAKE SURE SEARCH BAR FUNCTION-->
                 <div class="col-lg-2">
                     <div class="search-student-btn">
                         <button type="btn" class="btn btn-primary">Search</button>
@@ -41,6 +39,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="card card-table">
@@ -53,8 +52,10 @@
                                 <div class="col-auto text-end float-end ms-auto download-grp">
                                     <a href="teachers.html" class="btn btn-outline-gray me-2 active"><i
                                             class="feather-list"></i></a>
+                                            
                                     <a href="{{ route('teacher/grid/page') }}" class="btn btn-outline-gray me-2"><i
                                             class="feather-grid"></i></a>
+
                                     <a href="#" class="btn btn-outline-primary me-2"><i
                                             class="fas fa-download"></i> Download</a>
                                     <a href="{{ route('teacher/add/page') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
@@ -62,6 +63,7 @@
                             </div>
                         </div>
 
+                        <!--TABLE OF TUTORS LIST-->
                         <div class="table-responsive">
                             <table id="DataList" class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
                                 <thead class="student-thread"> 
@@ -82,6 +84,7 @@
                                         <th class="text-end">Action</th>
                                     </tr>
                                 </thead>
+                                
                                 <tbody>
                                     @foreach ($listTeacher as $list)
                                     <tr>
@@ -91,19 +94,21 @@
                                                     value="something">
                                             </div>
                                         </td>
+                                        <!-- TUTOR ID -->
                                         <td hidden class="id">{{ $list->id }}</td>
                                         <td>{{ $list->user_id }}</td>
+                                        
                                         <td>
-                                            <h2 class="table-avatar">
-                                                <a href="teacher-details.html" class="avatar avatar-sm me-2">
-                                                    @if (!empty($list->avatar))
+                                            <!--<h2 class="table-avatar">-->
+                                                <!--<a href="teacher-details.html" class="avatar avatar-sm me-2">-->
+                                                    <!--@if (!empty($list->avatar))
                                                         <img class="avatar-img rounded-circle" src="{{ URL::to('images/'.$list->avatar) }}" alt="{{ $list->name }}">
                                                     @else
                                                         <img class="avatar-img rounded-circle" src="{{ URL::to('images/photo_defaults.jpg') }}" alt="{{ $list->name }}">
-                                                    @endif
-                                                </a>
+                                                    @endif-->
+                                                <!--</a>-->
                                                 <a href="teacher-details.html">{{ $list->name }}</a>
-                                            </h2>
+                                            <!--</h2>-->
                                         </td>
                                         <td>10</td>
                                         <td>{{ $list->gender }}</td>
